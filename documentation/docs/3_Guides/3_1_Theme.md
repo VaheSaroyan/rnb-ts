@@ -11,7 +11,7 @@ It helps with variables and reusable classes to create harmony between applicati
 The boilerplate provides a custom hook called `useTheme` and you can use it like the example bellow:
 
 ```jsx
-import { useTheme } from '@/theme'
+import { useTheme } from '~/view/theme'
 
 const Brand = ({ height = 200, width = 200, mode = 'contain' }) => {
   const {
@@ -218,7 +218,7 @@ To use it, you only have to import the image like below
 ```javascript
 export default function () {
   return {
-    logo: require('@/assets/Images/TOM.png'),
+    logo: require('~/view/assets/Images/abc.png'),
   }
 }
 ```
@@ -227,7 +227,7 @@ Then you can use your image like this :
 
 ```jsx
 const myComponent = () => {
-    const { Images } useTheme()
+    const { Images }  = useTheme()
     return <Image source={Images.logo} />
 }
 ```
