@@ -9,6 +9,7 @@
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
+    "dd": "set \"GIT_USER=VaheSaroyan\"&& set CURRENT_BRANCH=main && set USE_SSH=true && yarn deploy",
     "ci": "yarn lint && yarn prettier:diff",
     "lint": "eslint --cache \"**/*.js\" && stylelint \"**/*.css\"",
     "prettier": "prettier --config .prettierrc --write \"**/*.{js,md}\"",

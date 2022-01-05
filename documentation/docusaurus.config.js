@@ -8,14 +8,14 @@
  */
 
 module.exports = {
-  title: 'React Native Boilerplate',
+  title: 'React Native Boilerplate ts',
   tagline: 'Ready to use react native architecture based on Separation of Concerns.',
   url: 'https://vahesaroyan.github.io',
-  baseUrl: '/react-native-boilerplate/',
+  baseUrl: '/react-native-boilerplate-ts/',
   onBrokenLinks: 'warn',
   favicon: 'img/favicon.png',
   organizationName: 'VaheSaroyan',
-  projectName: 'react-native-boilerplate',
+  projectName: 'react-native-boilerplate-ts',
   themeConfig: {
     algolia: {
       apiKey: '582006d3272cb38b4ffeba71e5292c7d',
@@ -25,7 +25,7 @@ module.exports = {
     navbar: {
       title: 'RNBoilerplate',
       logo: {
-        alt: 'React Native Boilerplate',
+        alt: 'React Native Boilerplate ts',
         src: 'img/logo_transparent.png',
       },
       items: [
@@ -36,7 +36,7 @@ module.exports = {
           position: 'left',
         },
         {
-          href: 'https://github.com/VaheSaroyan/react-native-boilerplate',
+          href: 'https://github.com/VaheSaroyan/react-native-boilerplate-ts',
           label: 'GitHub',
           position: 'right',
         },
@@ -58,7 +58,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/vahesaroyan/react-native-boilerplate/edit/master/website-documentation/docs',
+            'https://github.com/vahesaroyan/react-native-boilerplate-ts/edit/master/website-documentation/docs',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
