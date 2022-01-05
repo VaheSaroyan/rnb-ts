@@ -2,11 +2,11 @@
     <img src="documentation/static/img/twitter_header_photo_2.png" alt="Logo" width="100%">
 </div>
 
-![GitHub Release Date](https://img.shields.io/github/release-date/VaheSaroyan/react-native-boilerplate)
-![GitHub last commit](https://img.shields.io/github/last-commit/VaheSaroyan/react-native-boilerplate)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/VaheSaroyan/react-native-boilerplate)
-![GitHub commits since latest release](https://img.shields.io/github/commits-since/VaheSaroyan/react-native-boilerplate/latest)
-![GitHub top language](https://img.shields.io/github/languages/top/VaheSaroyan/react-native-boilerplate)
+![GitHub Release Date](https://img.shields.io/github/release-date/VaheSaroyan/react-native-boilerplate-ts)
+![GitHub last commit](https://img.shields.io/github/last-commit/VaheSaroyan/react-native-boilerplate-ts)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/VaheSaroyan/react-native-boilerplate-ts)
+![GitHub commits since latest release](https://img.shields.io/github/commits-since/VaheSaroyan/react-native-boilerplate-ts/latest)
+![GitHub top language](https://img.shields.io/github/languages/top/VaheSaroyan/react-native-boilerplate-ts)
 
 # React Native boilerplate
 
@@ -32,7 +32,7 @@ Follow instructions for your given `development OS` and `target OS`.
 To create a new project using the boilerplate simply run :
 
 ```
-npx react-native init MyApp --template @vahesaroyan/react-native-boilerplate
+npx react-native init MyApp --template @vahesaroyan/react-native-boilerplate-ts
 ```
 
 Assuming you have all the requirements installed, you can setup and run the project by running:
