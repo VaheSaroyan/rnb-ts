@@ -63,7 +63,7 @@ npx uri-scheme open myapp://app/home/1 --ios
 
 ## Digging Deeper 
 
-To learn more about this boilerplate, go to [full documentation](https://vahesaroyan.github.io/react-native-boilerplate)
+To learn more about this boilerplate, go to [full documentation](https://vahesaroyan.github.io/react-native-boilerplate-ts)
 
 ## License
 
