@@ -19,7 +19,7 @@ yarn-error.log
 template/.gitignore
 template/.gitattributes
 template/.eslintrc.js
-template/.flowconfig
 template/.buckconfig
 template/.prettierrc.js
 template/.watchmanconfig
+/template/assets

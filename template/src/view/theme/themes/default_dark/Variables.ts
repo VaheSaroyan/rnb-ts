@@ -1,4 +1,4 @@
-import { ThemeColors, ThemeNavigationColors } from '~/view/theme/theme.type';
+import { ThemeColors, ThemeNavigationColors } from '~/view/theme/theme';
 
 const Colors: ThemeColors = {
   primary: 'lightblue',

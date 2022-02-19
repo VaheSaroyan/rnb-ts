@@ -1,6 +1,6 @@
-import * as default_dark from './default_dark';
+import { Theme } from '~/view/theme/theme';
 
-import { Theme } from '~/view/theme/theme.type';
+import * as default_dark from './default_dark';
 
 type Themes = { [key: string]: Partial<Theme> };
 

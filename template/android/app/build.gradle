@@ -1,11 +1,14 @@
 apply plugin: "com.android.application"
+
 project.ext.envConfigFiles = [
         debug: "env/.env.dev",
         dev: "env/.env.dev",
         prod: "env/.env.prod",
         stage: "env/.env.stage",
 ]
+
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
 import com.android.build.OutputFile
 
 /**
@@ -120,7 +123,7 @@ def jscFlavor = 'org.webkit:android-jsc:+'
 /**
  * Whether to enable the Hermes VM.
  *
- * This should be set on project.ext.react and mirrored here.  If it is not set
+ * This should be set on project.ext.react and that value will be read here. If it is not set
  * on project.ext.react, JavaScript will not be compiled to Hermes Bytecode
  * and the benefits of using Hermes will therefore be sharply reduced.
  */
@@ -135,11 +138,6 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
 
     defaultConfig {
         applicationId "com.boilerplate"
@@ -187,23 +185,20 @@ android {
     }
     buildTypes {
         debug {
-                   signingConfig signingConfigs.debug
-                   if (nativeArchitectures) {
-                       ndk {
-                           abiFilters nativeArchitectures.split(',')
-                       }
-                   }
-               }
-               release {
-                   // Caution! In production, you need to generate your own keystore file.
-                   // see https://reactnative.dev/docs/signed-apk-android.
-                   signingConfig signingConfigs.debug
-                   minifyEnabled enableProguardInReleaseBuilds
-                   proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-               }
-
-
-
+            signingConfig signingConfigs.debug
+            if (nativeArchitectures) {
+                ndk {
+                    abiFilters nativeArchitectures.split(',')
+                }
+            }
+        }
+        release {
+            // Caution! In production, you need to generate your own keystore file.
+            // see https://reactnative.dev/docs/signed-apk-android.
+            signingConfig signingConfigs.debug
+            minifyEnabled enableProguardInReleaseBuilds
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
     }
 
     // applicationVariants are e.g. debug, release
@@ -228,10 +223,12 @@ dependencies {
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
+    implementation "androidx.core:core-splashscreen:1.0.0-beta01"
+
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
-      exclude group:'com.facebook.fbjni'
+        exclude group:'com.facebook.fbjni'
     }
 
     debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {

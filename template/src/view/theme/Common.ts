@@ -5,9 +5,9 @@
  */
 import { StyleSheet } from 'react-native';
 
-import buttonStyles from './components/Buttons';
+import { ThemeCommonParams } from '~/view/theme/theme';
 
-import { ThemeCommonParams } from '~/view/theme/theme.type';
+import buttonStyles from './components/Buttons';
 
 /**
  *

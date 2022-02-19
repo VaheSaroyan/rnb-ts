@@ -3,7 +3,7 @@
  */
 import { StyleSheet } from 'react-native';
 
-import { ThemeVariables, ThemeFonts } from '~/view/theme/theme.type';
+import { ThemeVariables, ThemeFonts } from '~/view/theme/theme';
 
 /**
  *

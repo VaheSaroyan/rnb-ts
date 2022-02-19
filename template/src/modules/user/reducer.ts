@@ -1,10 +1,10 @@
 import { createReducer } from 'deox';
 import produce from 'immer';
 
+import { AsyncStatus } from '~/types';
+
 import { setAuth, setUser } from './actions';
 import { UserState } from './types';
-
-import { AsyncStatus } from '~/types';
 
 export const initialState: UserState = {
   profileStatus: AsyncStatus.IDLE,

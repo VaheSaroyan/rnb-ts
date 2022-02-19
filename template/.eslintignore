@@ -1,8 +1,0 @@
-/.git
-/.vscode
-/.idea
-node_modules
-**/*.test.js
-babel.config.js
-/flow
-jest.setup.js

@@ -1,13 +1,18 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
+    "sourceMap": false,
     "target": "es6",
     "jsx": "react-native",
     "module": "esnext",
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "pretty": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "noEmit": true,
+    "isolatedModules": true,
     "removeComments": true,
+    "resolveJsonModule": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "allowSyntheticDefaultImports": true,
@@ -29,5 +34,6 @@
   },
   "include": [
     "src/**/*",
+    "custom.d.ts",
   ]
 }

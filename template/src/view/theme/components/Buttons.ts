@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native';
 
-import { ThemeCommonParams } from '~/view/theme/theme.type';
+import { ThemeCommonParams } from '~/view/theme/theme';
 
 export default function ({ Colors, Gutters, Layout }: ThemeCommonParams) {
   const base = {
     ...Layout.center,
-    ...Gutters.largeHPadding,
+    ...Gutters.MH20,
     height: 40,
     backgroundColor: Colors.primary,
   };

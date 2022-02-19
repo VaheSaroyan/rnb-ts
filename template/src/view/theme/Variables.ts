@@ -10,7 +10,7 @@ import {
   ThemeFontSize,
   ThemeMetricsSizes,
   ThemeNavigationColors,
-} from '~/view/theme/theme.type';
+} from '~/view/theme/theme';
 
 /**
  * Colors

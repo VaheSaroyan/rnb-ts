@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, {
   AxiosError,
   AxiosInstance,
@@ -6,10 +5,12 @@ import axios, {
   AxiosRequestConfig,
   AxiosResponse,
 } from 'axios';
+import Config from 'react-native-config';
 
-import { API_URL, REFRESH_TOKEN_URL } from '~/config/constants';
 import { setAuth, signOut } from '~/modules/user/actions';
 import { store } from '~/store';
+
+const { API_BASE, REFRESH_TOKEN_URL } = Config;
 
 let isRefreshing = false;
 let failedQueue: any = [];
@@ -31,15 +32,16 @@ const setTokenInterceptors = (instance: AxiosInstance): void => {
     (config: AxiosRequestConfig) => {
       const token = store.getState().user.auth?.access;
       if (token) {
+        config.headers = {};
         config.headers.Authorization = `Bearer ${token}`;
       }
       return config;
     },
-    error => Promise.reject(error),
+    (error: any) => Promise.reject(error),
   );
   instance.interceptors.response.use(
-    response => response,
-    error => {
+    (response: any) => response,
+    (error: any) => {
       const originalRequest = error.config;
 
       if (
@@ -63,7 +65,9 @@ const setTokenInterceptors = (instance: AxiosInstance): void => {
 
         return new Promise((resolve, reject) => {
           instance
-            .post(REFRESH_TOKEN_URL, { refresh: store.getState().user.auth?.refresh })
+            .post(REFRESH_TOKEN_URL, {
+              refresh: store.getState().user.auth?.refresh,
+            })
             .then(({ data }: AxiosResponse<{ access: string; refresh: string }>) => {
               store.dispatch(setAuth({ access: data.access, refresh: data.refresh }));
               instance.defaults.headers.common.Authorization = `Bearer ${data.access}`;
@@ -72,7 +76,7 @@ const setTokenInterceptors = (instance: AxiosInstance): void => {
               processQueue(null, data.access);
               resolve(instance(originalRequest));
             })
-            .catch(err => {
+            .catch((err: any) => {
               processQueue(err, '');
               store.dispatch(signOut());
               reject(err);
@@ -96,7 +100,7 @@ export class Api {
   constructor() {
     this.axiosInstance = axios.create({
       timeout: 30000,
-      baseURL: API_URL,
+      baseURL: API_BASE,
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
