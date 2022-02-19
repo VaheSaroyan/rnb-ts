@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { entries } from '~/utils/objects/entries';
-import { MetricStyleNames, StyleType, ThemeGutters, ThemeVariables } from '~/view/theme/theme.type';
+import { StyleType, ThemeGutters } from '~/view/theme/theme';
 
 /**
  * Generate Styles depending on MetricsSizes vars availabled at ./Theme/Variables
@@ -12,60 +11,68 @@ import { MetricStyleNames, StyleType, ThemeGutters, ThemeVariables } from '~/vie
  * where:
  * <size>: is the key of the variable included in MetricsSizes
  * <direction>: can be ['Bottom','Top','Right','Left','Horizontal','Vertical']
- * <op>: can be ['Margin', 'Padding']
+ * <op>: can be ['M', 'P']
  * <value>: is the value of the <size>
  */
 
-/**
- *
- * @param Theme can be spread like {Colors, NavigationColors, Gutters, Layout, Common, ...args}
- * @return {*}
- */
-export default function ({ MetricsSizes }: ThemeVariables): ThemeGutters {
+export default function (): ThemeGutters {
   return StyleSheet.create({
-    ...entries(MetricsSizes).reduce(
-      (acc, [key, value]) => ({
+    ...Array.from(Array(40).keys()).reduce(
+      (acc, key) => ({
         ...acc,
         /* Margins */
-        [`${key}BMargin`]: {
-          marginBottom: value,
+        [`MB${key}`]: {
+          marginBottom: key,
         },
-        [`${key}TMargin`]: {
-          marginTop: value,
+        [`MT${key}`]: {
+          marginTop: key,
         },
-        [`${key}RMargin`]: {
-          marginRight: value,
+        [`MR${key}`]: {
+          marginRight: key,
         },
-        [`${key}LMargin`]: {
-          marginLeft: value,
+        [`ML${key}`]: {
+          marginLeft: key,
         },
-        [`${key}VMargin`]: {
-          marginVertical: value,
+        [`MV${key}`]: {
+          marginVertical: key,
         },
-        [`${key}HMargin`]: {
-          marginHorizontal: value,
+        [`MH${key}`]: {
+          marginHorizontal: key,
         },
         /* Paddings */
-        [`${key}BPadding`]: {
-          paddingBottom: value,
+        [`PB${key}`]: {
+          paddingBottom: key,
         },
-        [`${key}TPadding`]: {
-          paddingTop: value,
+        [`PT${key}`]: {
+          paddingTop: key,
         },
-        [`${key}RPadding`]: {
-          paddingRight: value,
+        [`PR${key}`]: {
+          paddingRight: key,
         },
-        [`${key}LPadding`]: {
-          paddingLeft: value,
+        [`PL${key}`]: {
+          paddingLeft: key,
         },
-        [`${key}VPadding`]: {
-          paddingVertical: value,
+        [`PV${key}`]: {
+          paddingVertical: key,
         },
-        [`${key}HPadding`]: {
-          paddingHorizontal: value,
+        [`PH${key}`]: {
+          paddingHorizontal: key,
         },
       }),
-      {} as { [K in MetricStyleNames]: StyleType },
+      {
+        MLA: {
+          marginLeft: 'auto',
+        },
+        MRA: {
+          marginRight: 'auto',
+        },
+        MTA: {
+          marginTop: 'auto',
+        },
+        MBA: {
+          marginBottom: 'auto',
+        },
+      } as { [K in GuttersSizes]: StyleType },
     ),
   });
 }

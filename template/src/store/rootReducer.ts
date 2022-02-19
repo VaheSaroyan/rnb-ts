@@ -4,10 +4,10 @@ import { getType } from 'deox';
 import { Action, combineReducers } from 'redux';
 import { createTransform, persistReducer } from 'redux-persist';
 
-import { RootState } from './types';
-
 import { resetStore } from '~/modules/app/actions';
 import { userReducer } from '~/modules/user/reducer';
+
+import { RootState } from './types';
 
 const transforms = [
   createTransform(
