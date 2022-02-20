@@ -11,7 +11,9 @@ import { AppNavigator } from '~/view/navigation/App';
 
 const RootApp: React.FC = () => {
   useMount(() => {
-    RNBootSplash.hide({ fade: true }); // fade
+    setTimeout(() => {
+      RNBootSplash.hide({ fade: true }); // fade
+    });
   });
 
   return (

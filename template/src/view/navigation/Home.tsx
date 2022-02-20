@@ -1,15 +1,15 @@
 import * as React from 'react';
 
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { HomeScreen } from '~/view/screens/Home';
 
 const screenOptions = {
-  gestureEnabled: false,
+  gestureEnabled: true,
   headerShown: false,
 };
 
-const HomeStack = createStackNavigator();
+const HomeStack = createNativeStackNavigator();
 
 export const HomeNavigator: React.FC = () => (
   <HomeStack.Navigator screenOptions={screenOptions}>

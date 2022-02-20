@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { AuthScreen } from '~/view/screens/Auth';
 
@@ -9,7 +9,7 @@ const screenOptions = {
   headerShown: false,
 };
 
-const AuthStack = createStackNavigator();
+const AuthStack = createNativeStackNavigator();
 
 export const AuthNavigator: React.FC = () => (
   <AuthStack.Navigator screenOptions={screenOptions}>
