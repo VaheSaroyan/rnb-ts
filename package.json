@@ -1,6 +1,6 @@
 {
   "name": "@vahesaroyan/react-native-boilerplate-ts",
-  "version": "1.1.0",
+  "version": "3.0.0",
   "description": "React Native Boilerplate",
   "repository": {
     "type": "git",
@@ -24,6 +24,9 @@
     "starter-kit"
   ],
   "dependencies": {
-    "kleur": "^4.1.4"
+    "ascii-art": "^2.8.5",
+    "asciify-image": "^0.1.8",
+    "kleur": "^4.1.4",
+    "yargs": "^17.4.1"
   }
 }

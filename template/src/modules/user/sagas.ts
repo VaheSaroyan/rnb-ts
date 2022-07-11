@@ -1,4 +1,3 @@
-import { getType } from 'deox';
 import { SagaIterator } from 'redux-saga';
 import { put, takeLatest } from 'typed-redux-saga';
 
@@ -11,5 +10,5 @@ function* signOutSaga(): SagaIterator {
 }
 
 export function* watchUser(): SagaIterator {
-  yield* takeLatest(getType(signOut), signOutSaga);
+  yield* takeLatest(signOut, signOutSaga);
 }

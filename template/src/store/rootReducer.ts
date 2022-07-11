@@ -1,13 +1,13 @@
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { combineReducers } from 'redux';
+import { createMigrate, createTransform, persistReducer } from 'redux-persist';
+import { MigrationManifest } from 'redux-persist/es/types';
+import storage from 'redux-persist/lib/storage';
 
-import { getType } from 'deox';
-import { Action, combineReducers } from 'redux';
-import { createTransform, persistReducer } from 'redux-persist';
+import packageJson from '../../package.json';
 
 import { resetStore } from '~/modules/app/actions';
 import { userReducer } from '~/modules/user/reducer';
-
-import { RootState } from './types';
 
 const transforms = [
   createTransform(
@@ -21,22 +21,28 @@ const transforms = [
   ),
 ];
 
+const migrations: MigrationManifest = {
+  0: state => (state ? { _persist: state._persist } : state),
+};
+
 const rootPersistConfig = {
-  key: 'root',
+  key: packageJson.name,
   storage: AsyncStorage,
   whitelist: ['user'],
   transforms,
+  version: 0,
+  migrate: createMigrate(migrations),
 };
 
 const appReducer = combineReducers({
   user: userReducer,
 });
 
-const reducer = (state: RootState | undefined, action: Action): RootState => {
-  if (action.type === getType(resetStore)) {
+const reducer: typeof appReducer = (state, action) => {
+  if (action.type === resetStore) {
     state = undefined;
   }
   return appReducer(state, action);
 };
 
-export const rootReducer = persistReducer(rootPersistConfig, reducer);
+export const rootReducer = persistReducer<ReturnType<typeof reducer>>(rootPersistConfig, reducer);

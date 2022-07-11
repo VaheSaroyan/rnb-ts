@@ -1,2 +1,1 @@
-export * from './objects';
-export * from './validations';
+export * from './strings';

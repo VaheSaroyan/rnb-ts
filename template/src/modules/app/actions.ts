@@ -1,3 +1,5 @@
-import { createAction } from 'deox';
+import { createAction } from '@reduxjs/toolkit';
 
-export const resetStore = createAction('app/RESET_STORE');
+const PREFIX = 'app';
+
+export const resetStore = createAction(`${PREFIX}/RESET_STORE`);

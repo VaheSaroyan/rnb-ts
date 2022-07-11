@@ -1,14 +1,12 @@
-import * as React from 'react';
-
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import { AuthNavigator } from './Auth';
 import { HomeNavigator } from './Home';
 
-const AppStack = createNativeStackNavigator();
+const AppStack = createStackNavigator();
 
-export const AppNavigator: React.FC = () => (
+export const AppNavigator = () => (
   <NavigationContainer>
     <AppStack.Navigator>
       <AppStack.Screen name="Auth" component={AuthNavigator} />

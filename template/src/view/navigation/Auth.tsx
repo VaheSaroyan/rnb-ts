@@ -1,6 +1,4 @@
-import * as React from 'react';
-
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import { AuthScreen } from '~/view/screens/Auth';
 
@@ -9,9 +7,9 @@ const screenOptions = {
   headerShown: false,
 };
 
-const AuthStack = createNativeStackNavigator();
+const AuthStack = createStackNavigator();
 
-export const AuthNavigator: React.FC = () => (
+export const AuthNavigator = () => (
   <AuthStack.Navigator screenOptions={screenOptions}>
     <AuthStack.Screen name="AuthScreen" component={AuthScreen} />
   </AuthStack.Navigator>

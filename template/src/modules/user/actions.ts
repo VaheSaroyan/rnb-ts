@@ -1,15 +1,11 @@
-import { createAction } from 'deox';
+import { createAction } from '@reduxjs/toolkit';
 
 import { UserProfileModel } from '~/models/user';
 
-export const setUser = createAction(
-  'user/SET_USER',
-  resolve => (payload: UserProfileModel) => resolve(payload),
-);
+import { UserAuth } from './types';
 
-export const setAuth = createAction(
-  'user/SET_AUTH',
-  resolve => (payload: Nullable<{ access: string; refresh: string }>) => resolve(payload),
-);
+export const setUser = createAction<UserProfileModel>('user/SET_USER');
+
+export const setAuth = createAction<Nullable<UserAuth>>('user/SET_AUTH');
 
 export const signOut = createAction('user/SIGN_OUT');
